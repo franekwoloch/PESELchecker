@@ -2,9 +2,7 @@ package pl.peselchecker.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.*;
 import javafx.scene.paint.Color;
 
 import java.net.URL;
@@ -36,6 +34,18 @@ public class MainController implements Initializable{
 
     @FXML
     private Label blackListFile;
+
+    @FXML
+    private TableView<?> results;
+
+    @FXML
+    private TableColumn<?, ?> dataBaseResults;
+
+    @FXML
+    private TableColumn<?, ?> FalseListResults;
+
+    @FXML
+    private TableColumn<?, ?> blackListResults;
 
 
     @Override
