@@ -7,4 +7,5 @@ import java.time.LocalDate;
 @Data
 public class InfoPack {
     private LocalDate birthDate;
+    private Sex sex;
 }
