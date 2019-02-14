@@ -9,6 +9,7 @@ public class InfoPack {
     private int [] peselNumber;
     private LocalDate birthDate;
     private Sex sex;
+    private String desc;
 
 
     public InfoPack(int[] peselNumber, LocalDate birthDate, Sex sex) {

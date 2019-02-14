@@ -7,6 +7,6 @@ public interface FileReader {
 
     DataBase readFile(String path, String fileName){
         Scanner scanner=new Scanner(fileName);
-        
+
     }
 }
