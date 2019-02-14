@@ -11,7 +11,9 @@ public class InfoPack {
     private Sex sex;
 
 
-    public InfoPack(int[] peselNumber) {
+    public InfoPack(int[] peselNumber, LocalDate birthDate, Sex sex) {
         this.peselNumber = peselNumber;
+        this.birthDate = birthDate;
+        this.sex = sex;
     }
 }
