@@ -7,7 +7,7 @@ import java.io.IOException;
 @FunctionalInterface
 public interface FileReaderInterface {
 
-    DataBase readFile(String path, String fileName){
+    DataBase readFile(String fileName){
 
         DataBase newDataBase=new DataBase();
 
