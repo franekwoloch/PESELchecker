@@ -65,7 +65,7 @@ public class MainController implements Initializable{
 
     public void toImportDataBase(){
         importDataBase.setOnAction(event -> {
-            System.out.println("Import task");
+            System.out.println("Task import");
             System.out.println(event.getEventType());
         });
 
