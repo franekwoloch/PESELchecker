@@ -18,6 +18,7 @@ import java.util.ResourceBundle;
 public class MainController implements Initializable{
 
     DataBase dataBase=new DataBase();
+    DataBase blackList=new DataBase();
 
     @FXML
     private MenuItem importDataBase;
@@ -63,8 +64,9 @@ public class MainController implements Initializable{
 
         toImportDataBase();
 
+
         System.out.println(blackListFile.getText());
-        blackListFile.setText("Load black list (optional??)");
+        blackListFile.setText("Load black list (optional)");
         blackListFile.setTextFill(Color.web("#ff0000"));
 
         System.out.println(dataBaseFile.getText());
@@ -91,6 +93,27 @@ public class MainController implements Initializable{
                     e.printStackTrace(); //ignore
                 }
             });
+    }
+
+    public void toImportBlackList(){
+        importBlackList.setOnAction(event -> {
+            System.out.println("Task import");
+            System.out.println(event.getEventType());
+
+
+            FileReaderUtil fileReader=new FileReaderUtil();
+            FileChooser fc = new FileChooser();
+            fc.getExtensionFilters().add(new FileChooser.ExtensionFilter(".txt", "*.txt"));
+            File file = fc.showOpenDialog(new Stage());
+            try {
+                blackList=fileReader.readFile(file);
+                blackListFile.setText("Loaded file with blacklist: "+file.toString());
+                blackListFile.setTextFill(Color.web("#00ff00"));
+
+            } catch (Exception e) {
+                e.printStackTrace(); //ignore
+            }
+        });
     }
 }
 
