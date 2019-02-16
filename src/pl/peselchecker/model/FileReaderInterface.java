@@ -4,8 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-@FunctionalInterface
-public interface FileReaderInterface {
+
+public class FileReaderInterface {
 
     DataBase readFile(String fileName){
 
@@ -15,7 +15,6 @@ public interface FileReaderInterface {
         String [] tempRecords=new String[1000];
         FileReader fileReader = null;
         BufferedReader reader = null;
-        String fileName= "file.txt";
         int tempRecordsLength=0;
 
 
@@ -49,7 +48,7 @@ public interface FileReaderInterface {
 
         for (int i=0; i<tempRecordsLength; i++) {
             //record analysis
-            tempRecord = tempRecordsLength[i];
+            tempRecord = tempRecords[i];
             char[] tempCharsArray;
             tempCharsArray = tempRecord.toCharArray();
             int tempCharsLength = tempCharsArray.length; //length of record
@@ -70,7 +69,7 @@ public interface FileReaderInterface {
             if (tempCharsIndex<9) {
                 difference=9-tempCharsIndex;
                 for (int k=8; k>=difference;k--){
-                    tempPesel[k]=tempPesel[k-difference]
+                    tempPesel[k]=tempPesel[k-difference];
             }
             for (int l=0;l<difference;l++){
                     tempPesel[l]=0;

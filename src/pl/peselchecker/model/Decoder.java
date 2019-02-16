@@ -1,7 +1,7 @@
 package pl.peselchecker.model;
 
-import java.time.LocalDate;
 
+import java.time.LocalDate;
 
 public class Decoder {
     //p-pesel number
