@@ -4,7 +4,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.paint.Color;
-
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -48,16 +49,28 @@ public class MainController implements Initializable{
     private TableColumn<?, ?> blackListResults;
 
 
-    @Override
+
     public void initialize(URL arg0, ResourceBundle arg1) {
+
+        toImportDataBase();
+
         System.out.println(blackListFile.getText());
-        blackListFile.setText("Load black list (optional)");
+        blackListFile.setText("Load black list (optional??)");
         blackListFile.setTextFill(Color.web("#ff0000"));
 
         System.out.println(dataBaseFile.getText());
         dataBaseFile.setText("Load file with data base");
         dataBaseFile.setTextFill(Color.web("#ff0000"));
     }
+
+    public void toImportDataBase(){
+        importDataBase.setOnAction(event -> {
+            System.out.println("Import task");
+            System.out.println(event.getEventType());
+        });
+
+    }
+
 
 }
 

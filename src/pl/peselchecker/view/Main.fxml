@@ -20,7 +20,7 @@
               <menus>
                 <Menu id="File" mnemonicParsing="false" text="File">
                   <items>
-                    <MenuItem id="import" fx:id="importDataBase" mnemonicParsing="false" text="Import DataBase" />
+                    <MenuItem id="import" fx:id="importDataBase" mnemonicParsing="false" onAction="#toImportDataBase" text="Import DataBase" />
                         <MenuItem id="export" fx:id="exportDataBase" mnemonicParsing="false" text="Export DataBase" />
                         <MenuItem id="blackImport" fx:id="importBlackList" mnemonicParsing="false" text="Import BlackList" />
                   </items>
