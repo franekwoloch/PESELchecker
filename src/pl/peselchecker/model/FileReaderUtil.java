@@ -1,13 +1,14 @@
 package pl.peselchecker.model;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
 
-public class FileReaderInterface {
+public class FileReaderUtil {
 
-    DataBase readFile(String fileName){
+    public DataBase readFile(File file){
 
         DataBase newDataBase=new DataBase();
 
@@ -20,7 +21,7 @@ public class FileReaderInterface {
 
         //reading file to temporary array
         try {
-            fileReader = new java.io.FileReader(fileName);
+            fileReader = new FileReader(file);
             reader = new BufferedReader(fileReader);
             String nextLine = null;
             int lines = 0;
@@ -42,7 +43,7 @@ public class FileReaderInterface {
         }
 
         String tempRecord;
-        StringBuilder tempDescription=null;
+        StringBuilder tempDescription=new StringBuilder("desc: ");
         int [] tempPesel=new int [9];
         int tempCharsIndex=0;
 
