@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.peselchecker.controller.MainController">
+   <top>
+      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="83.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar id="mainMenu" maxHeight="25.0" maxWidth="6000.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="600.0" AnchorPane.topAnchor="0.0">
+              <menus>
+                <Menu id="File" mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem id="import" fx:id="importDataBase" mnemonicParsing="false" text="Import DataBase" />
+                        <MenuItem id="export" fx:id="exportDataBase" mnemonicParsing="false" text="Export DataBase" />
+                        <MenuItem id="blackImport" fx:id="importBlackList" mnemonicParsing="false" text="Import BlackList" />
+                  </items>
+                </Menu>
+                <Menu id="help" mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <Button id="check" fx:id="goButton" layoutX="390.0" layoutY="25.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="209.0" text="GO!" textFill="#ff8e15">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <Label fx:id="dataBaseFile" layoutX="120.0" layoutY="25.0" text="no database" />
+            <Label fx:id="dataBaseText" layoutX="5.0" layoutY="25.0" prefHeight="20.0" prefWidth="120.0" text="Loaded data base:" />
+            <Label fx:id="blackListText" layoutX="5.0" layoutY="45.0" prefHeight="20.0" prefWidth="120.0" text="Loaded black list:" />
+            <Label fx:id="blackListFile" layoutX="120.0" layoutY="45.0" text="no blackList" />
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView prefHeight="200.0" prefWidth="600.0">
+              <columns>
+                <TableColumn id="dataBase" prefWidth="201.0" text="DataBase" />
+                  <TableColumn prefWidth="188.0" text="False List" />
+                <TableColumn prefWidth="210.0" text="BlackList" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </center>
+   <bottom>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>
