@@ -8,8 +8,10 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import pl.peselchecker.model.Checker;
 import pl.peselchecker.model.DataBase;
 import pl.peselchecker.model.FileReaderUtil;
+import pl.peselchecker.model.Pesel;
 
 import java.io.File;
 import java.net.URL;
@@ -18,7 +20,9 @@ import java.util.ResourceBundle;
 public class MainController implements Initializable{
 
     DataBase dataBase=new DataBase();
-    DataBase blackList=new DataBase();
+    DataBase blackList;
+    DataBase blackBase;
+    DataBase falseList;
 
     @FXML
     private MenuItem importDataBase;
@@ -62,8 +66,17 @@ public class MainController implements Initializable{
     public void initialize(URL arg0, ResourceBundle arg1) {
 
 
-        toImportDataBase();
+        blackList=new DataBase();
+        blackBase=new DataBase();
+        falseList=new DataBase();
 
+
+        toImportDataBase();
+        toImportBlackList();
+        goApp();
+        showResult();
+        blackExport();
+        falseExport();
 
         System.out.println(blackListFile.getText());
         blackListFile.setText("Load black list (optional)");
@@ -92,6 +105,15 @@ public class MainController implements Initializable{
                 } catch (Exception e) {
                     e.printStackTrace(); //ignore
                 }
+
+            try {
+                for (int i = 0; i < 1000; i++) {
+                    Pesel tempPesel = dataBase.pesels[i];
+                    System.out.println("Zaimportowano pesel [wynik kontrolny]: "+tempPesel.getPeselBean(0));
+                }
+            } catch (Exception e) {
+                System.err.println("Baza pusta");
+            }
             });
     }
 
@@ -114,6 +136,47 @@ public class MainController implements Initializable{
                 e.printStackTrace(); //ignore
             }
         });
+    }
+
+    public void goApp(){
+
+
+        goButton.setOnAction(event -> {
+        System.out.println("GO task");
+        System.out.println(event.getEventType());
+        /**/
+        int falseIndex=0;
+
+        try {
+            Checker checker = new Checker();
+            for (int i = 0; i < 1000; i++) {
+                Pesel tempPesel = dataBase.pesels[i];
+                System.out.println("Sprawdzam pesel [cyfra kontrolna]: "+tempPesel.getPeselBean(2));
+
+                if (checker.check(tempPesel) == false) {
+                    falseList.pesels[falseIndex] = dataBase.pesels[i];
+                    falseList.descriptions[falseIndex] = dataBase.descriptions[i];
+                    falseIndex++;
+                }
+
+            }
+        }
+        catch (Exception e) {
+            System.err.println("Baza pusta");
+        }
+        });
+    }
+
+    public void showResult(){
+
+    }
+
+    public void blackExport(){
+
+    }
+
+    public void falseExport(){
+
     }
 }
 

@@ -44,7 +44,7 @@ public class FileReaderUtil {
 
         String tempRecord;
         StringBuilder tempDescription=new StringBuilder("desc: ");
-        int [] tempPesel=new int [9];
+        int [] tempPesel=new int [11];
         int tempCharsIndex=0;
 
         for (int i=0; i<tempRecordsLength; i++) {
@@ -54,7 +54,7 @@ public class FileReaderUtil {
             tempCharsArray = tempRecord.toCharArray();
             int tempCharsLength = tempCharsArray.length; //length of record
             //reading first nine chars
-            for (int j = 0; j < 9; j++) {
+            for (int j = 0; j < 11; j++) {
                 tempCharsIndex=j;
                 char testChar = tempCharsArray[j];
                 if (Character.isDigit(testChar)) {
@@ -65,21 +65,25 @@ public class FileReaderUtil {
                     }
                 }
             }
+
             //check length of Pesel
             int difference;
-            if (tempCharsIndex<9) {
-                difference=9-tempCharsIndex;
-                for (int k=8; k>=difference;k--){
+            if (tempCharsIndex<11) {
+                difference=11-tempCharsIndex;
+                for (int k=9; k>=difference;k--){
                     tempPesel[k]=tempPesel[k-difference];
-            }
-            for (int l=0;l<difference;l++){
+                }
+                for (int l=0;l<difference;l++){
                     tempPesel[l]=0;
+                }
             }
+
             Pesel peselToSave = new Pesel(tempPesel);
 
-                //save pesel to DataBase
+            //save pesel to DataBase
             newDataBase.pesels[i]=peselToSave;
-            }
+
+
             //description analysis
             for (int m=tempCharsIndex+1;m<tempCharsLength;m++){
                 tempDescription=tempDescription.append(tempCharsArray[m]);
@@ -89,5 +93,6 @@ public class FileReaderUtil {
 
         }
         return newDataBase;
+
     }
 }
