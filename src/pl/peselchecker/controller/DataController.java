@@ -4,18 +4,19 @@ package pl.peselchecker.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import lombok.Data;
+import pl.peselchecker.model.Pesel;
 
 @Data
 public class DataController {
 
     @FXML
-    private TableColumn<?, ?> dataBaseResults;
+    private TableColumn<Pesel> dataBaseResults;
 
     @FXML
-    private TableColumn<?, ?> falseListResults;
+    private TableColumn<Pesel> falseListResults;
 
     @FXML
-    private TableColumn<?, ?> blackListResults;
+    private TableColumn<Pesel> blackListResults;
 
     public void initialize() {
 
