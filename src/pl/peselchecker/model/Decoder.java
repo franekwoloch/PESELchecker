@@ -1,30 +1,33 @@
 package pl.peselchecker.model;
 
+
 import java.time.LocalDate;
 
-@FunctionalInterface
-public interface Decoder {
+public class Decoder {
     //p-pesel number
 
-    InfoPack decode(int[] p){
-        private LocalDate birthDate;
-        private Sex sex;
-        private int sexIndex=p[9]%2;
+    private LocalDate birthDate;
+    private Sex sex;
 
-        private int day;
+
+    InfoPack decode(int[] p){
+
+        int sexIndex=p[9]%2;
+
+        int day;
         day=10*p[5]+p[6];
 
-        private int month;
+        int month;
         month=10*p[3]+p[4];
 
-        private int century=20;
+        int century=20;
 
         if (month>20&&month<33){
             month=month-20;
             century=21;
         }
 
-        private int year;
+       int year;
         year=1900+10*p[1]+p[2];
 
         if (century==21){
@@ -35,7 +38,7 @@ public interface Decoder {
 
         if (sexIndex==0){
             sex=Sex.F;
-        } else if {
+        } else {
             sex=Sex.M;
         }
 
