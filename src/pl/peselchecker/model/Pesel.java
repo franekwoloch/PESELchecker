@@ -7,12 +7,18 @@ public class Pesel {
     public Pesel(int[] p) {
         this.p = p;
     }
-
-<<<<<<< HEAD
-
-=======
     public int getPeselBean(int index){
         return p[index];
     }
->>>>>>> control
+
+    @Override
+    public String toString(){
+        String pesel;
+        StringBuilder peselBuilder=new StringBuilder();
+        for (int i=0; i<p.length;i++){
+            peselBuilder=peselBuilder.append(p[i]);
+        }
+        pesel=peselBuilder.toString();
+        return pesel;
+    }
 }

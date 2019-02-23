@@ -10,13 +10,13 @@ import pl.peselchecker.model.Pesel;
 public class DataController {
 
     @FXML
-    private TableColumn<Pesel> dataBaseResults;
+    private TableColumn<Pesel,String> dataBaseResults;
 
     @FXML
-    private TableColumn<Pesel> falseListResults;
+    private TableColumn<Pesel,String> falseListResults;
 
     @FXML
-    private TableColumn<Pesel> blackListResults;
+    private TableColumn<Pesel,String> blackListResults;
 
     public void initialize() {
 
