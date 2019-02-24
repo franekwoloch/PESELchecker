@@ -13,17 +13,23 @@ import pl.peselchecker.model.FileReaderUtil;
 import pl.peselchecker.model.Pesel;
 
 import java.io.File;
-import java.net.URL;
-import java.util.ResourceBundle;
 import lombok.Data;
 
 @Data
 public class MenuController {
 
+    public DataBase getDataBase() {
+        return dataBase;
+    }
+
     DataBase dataBase=new DataBase();
     DataBase blackList;
-    DataBase blackBase;
     DataBase falseList;
+
+
+    public Button getGoButton() {
+        return goButton;
+    }
 
 
     @FXML
@@ -54,7 +60,6 @@ public class MenuController {
 
 
         blackList=new DataBase();
-        blackBase=new DataBase();
         falseList=new DataBase();
 
 

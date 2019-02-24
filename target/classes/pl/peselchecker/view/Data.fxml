@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 
 <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.peselchecker.controller.DataController">
     <children>
-        <TableView prefHeight="200.0" prefWidth="600.0">
+        <TableView fx:id="dataBaseColumn" prefHeight="200.0" prefWidth="172.0">
             <columns>
-                <TableColumn id="dataBase" fx:id="dataBaseResults" prefWidth="201.0" text="DataBase" />
-                <TableColumn id="false" fx:id="falseListResults" prefWidth="188.0" text="False List" />
-                <TableColumn id="black" fx:id="blackListResults" prefWidth="210.0" text="BlackList" />
+                <TableColumn id="dataBase" fx:id="dataBaseResults" prefWidth="176.0" text="DataBase" />
             </columns>
         </TableView>
+      <TableView fx:id="falseListColumn" layoutX="172.0" prefHeight="200.0" prefWidth="172.0">
+         <columns>
+                <TableColumn id="false" fx:id="falseListResults" prefWidth="176.0" text="False List" />
+         </columns>
+      </TableView>
+      <TableView fx:id="blackListColumn" layoutX="344.0" prefHeight="200.0" prefWidth="172.0">
+        <columns>
+                <TableColumn id="black" fx:id="blackListResults" prefWidth="176.0" text="BlackList" />
+        </columns>
+      </TableView>
     </children>
 </AnchorPane>

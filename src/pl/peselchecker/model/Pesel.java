@@ -21,4 +21,11 @@ public class Pesel {
         pesel=peselBuilder.toString();
         return pesel;
     }
+
+
+    public Pesel peselProperty(){
+        Pesel pesel = new Pesel(p);
+        return pesel;
+    }
+
 }

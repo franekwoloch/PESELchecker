@@ -2,8 +2,11 @@ package pl.peselchecker.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.MenuItem;
+import pl.peselchecker.model.DataBase;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.scene.control.Button;
 
 public class MainController implements Initializable{
 
@@ -22,9 +25,8 @@ public class MainController implements Initializable{
         System.out.println(dataController);
         System.out.println(resultsController);
 
+        Button AppButton=menuController.getGoButton();
+        AppButton.setOnAction(goButton->dataController.setDataBase(menuController.getDataBase()));
     }
-
-
-
 }
 
