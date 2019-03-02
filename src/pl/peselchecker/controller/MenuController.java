@@ -66,6 +66,7 @@ public class MenuController {
         toImportDataBase();
         toImportBlackList();
         goApp();
+        System.out.println("goApp");
         showResult();
         blackExport();
         falseExport();
