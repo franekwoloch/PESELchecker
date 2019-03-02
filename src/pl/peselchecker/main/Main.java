@@ -5,9 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import pl.peselchecker.model.DataBase;
 
 
 public class Main extends Application {
+
     @Override
     public void start(Stage primaryStage) {
         final String appName = "PeselChecker";
@@ -21,6 +23,7 @@ public class Main extends Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
     public static void main(String[] args) {

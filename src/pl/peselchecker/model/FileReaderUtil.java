@@ -30,6 +30,7 @@ public class FileReaderUtil {
                 tempRecords.add(nextLine);
             }
             System.out.println("Wczytano " + tempRecords.size()+" rekordow");
+            tempRecordsLength=tempRecords.size();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -90,6 +91,7 @@ public class FileReaderUtil {
             newDataBase.descriptions.add(tempDescription.toString());
 
         }
+        System.out.println("First record:"+newDataBase.pesels.get(0).toString());
         return newDataBase;
 
     }
