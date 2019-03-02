@@ -18,10 +18,6 @@ import lombok.Data;
 @Data
 public class MenuController {
 
-    public DataBase getDataBase() {
-        return dataBase;
-    }
-
     DataBase dataBase=new DataBase();
     DataBase blackList;
     DataBase falseList;
@@ -132,7 +128,6 @@ public class MenuController {
     }
 
     public void goApp(){
-
 
         goButton.setOnAction(event -> {
             System.out.println("GO task");

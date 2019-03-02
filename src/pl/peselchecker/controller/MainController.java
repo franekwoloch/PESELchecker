@@ -25,8 +25,13 @@ public class MainController implements Initializable{
         System.out.println(dataController);
         System.out.println(resultsController);
 
+
         Button AppButton=menuController.getGoButton();
-        AppButton.setOnAction(goButton->dataController.setDataBase(menuController.getDataBase()));
+        AppButton.setOnAction(goButton->
+                {
+                    menuController.goApp();
+                    dataController.setDataBase(menuController.getDataBase());
+                });
     }
 }
 

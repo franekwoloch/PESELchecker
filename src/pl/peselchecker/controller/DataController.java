@@ -23,7 +23,8 @@ import java.util.ResourceBundle;
 public class DataController {
 
     public void setDataBase(DataBase dataBase) {
-        //this.dataBase = FXCollections.observableArrayList(Arrays.asList(dataBase.pesels));
+        this.dataBase = FXCollections.observableArrayList(dataBase.pesels);
+        System.out.println("Database setted");
     }
 
     ObservableList<Pesel> dataBase;
