@@ -1,17 +1,18 @@
 package pl.peselchecker.model;
 
+import java.util.ArrayList;
+
 public class DataBase {
 
 
-    public Pesel[] pesels;
-    public String[] descriptions;
+    public ArrayList<Pesel> pesels =new ArrayList<Pesel>();
+    public ArrayList<String> descriptions = new ArrayList<String>();
+    public ArrayList<ArrayList> dataBase=new ArrayList<ArrayList>();
 
 
-    public DataBase() {
-        pesels = new Pesel[1000];
-        descriptions = new String[1000];
-        Object [][] DataBase = {pesels, descriptions};
-
+    public DataBase(){
+        dataBase.add(0,pesels);
+        dataBase.add(1,descriptions);
     }
 
 }

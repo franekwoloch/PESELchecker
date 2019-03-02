@@ -101,7 +101,7 @@ public class MenuController {
 
             try {
                 for (int i = 0; i < 1000; i++) {
-                    Pesel tempPesel = dataBase.pesels[i];
+                    Pesel tempPesel = dataBase.pesels.get(i);
                     System.out.println("Zaimportowano pesel [wynik kontrolny]: "+tempPesel.getPeselBean(0));
                 }
             } catch (Exception e) {
@@ -143,12 +143,12 @@ public class MenuController {
             try {
                 Checker checker = new Checker();
                 for (int i = 0; i < 1000; i++) {
-                    Pesel tempPesel = dataBase.pesels[i];
+                    Pesel tempPesel = dataBase.pesels.get(i);
                     System.out.println("Sprawdzam pesel [cyfra kontrolna]: "+tempPesel.getPeselBean(2));
 
                     if (checker.check(tempPesel) == false) {
-                        falseList.pesels[falseIndex] = dataBase.pesels[i];
-                        falseList.descriptions[falseIndex] = dataBase.descriptions[i];
+                        falseList.pesels.add(dataBase.pesels.get(i));
+                        falseList.descriptions.add(dataBase.descriptions.get(i));
                         falseIndex++;
                     }
 

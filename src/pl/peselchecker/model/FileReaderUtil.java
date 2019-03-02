@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 public class FileReaderUtil {
@@ -13,7 +14,7 @@ public class FileReaderUtil {
         DataBase newDataBase=new DataBase();
 
         //Creating temporary DataBase
-        String [] tempRecords=new String[1000];
+        ArrayList<String> tempRecords=new ArrayList<>();
         FileReader fileReader = null;
         BufferedReader reader = null;
         int tempRecordsLength=0;
@@ -24,13 +25,11 @@ public class FileReaderUtil {
             fileReader = new FileReader(file);
             reader = new BufferedReader(fileReader);
             String nextLine = null;
-            int lines = 0;
+
             while ((nextLine = reader.readLine()) != null) {
-                tempRecords[lines]=nextLine;
-                tempRecordsLength=lines+1;
-                lines++;
+                tempRecords.add(nextLine);
             }
-            System.out.println("Wczytano " + lines+" rekordow");
+            System.out.println("Wczytano " + tempRecords.size()+" rekordow");
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -49,7 +48,7 @@ public class FileReaderUtil {
 
         for (int i=0; i<tempRecordsLength; i++) {
             //record analysis
-            tempRecord = tempRecords[i];
+            tempRecord = tempRecords.get(i);
             char[] tempCharsArray;
             tempCharsArray = tempRecord.toCharArray();
             int tempCharsLength = tempCharsArray.length; //length of record
@@ -81,15 +80,14 @@ public class FileReaderUtil {
             Pesel peselToSave = new Pesel(tempPesel);
 
             //save pesel to DataBase
-            newDataBase.pesels[i]=peselToSave;
-
+            newDataBase.pesels.add(peselToSave);
 
             //description analysis
             for (int m=tempCharsIndex+1;m<tempCharsLength;m++){
                 tempDescription=tempDescription.append(tempCharsArray[m]);
             }
 
-            newDataBase.descriptions[i]=tempDescription.toString();
+            newDataBase.descriptions.add(tempDescription.toString());
 
         }
         return newDataBase;
